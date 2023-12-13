@@ -131,7 +131,7 @@
                 and expertise—download my CV below!
               </p>
               <a
-                href="assets/pdf/pradeepResume.pdf"
+                href="assets/pdf/PradeepGontla.pdf"
                 target="_blank"
                 class="button button--flex"
               >
@@ -151,7 +151,7 @@
       <!--==================== ABOUT ==========================-->
       <section class="about section" id="about">
         <h2 class="section__title">About Me</h2>
-        <span class="section__subtitle">A brief about me</span>
+        <span class="section__subtitle"></span>
         <div class="about__container container grid">
           <img
             src="assets/img/fun.jpg"
@@ -160,10 +160,15 @@
           />
           <div class="about__data">
             <p class="about__description">
-              I hail from India, with my hobbies and extracurriculars include
-              Public Speaking, Badminton and watching TV Series. At RIT, I have
-              got the opportunity to not just sharpen my skills but also explore
-              more into the realm of Data Science and Artificial Intelligence.
+              I hail from India with a passion for Data Science and AI. My
+              diverse interests include public speaking, badminton, and
+              binge-watching TV series.
+              <br />
+              <br />
+              Outside the academic world, I'm an avid traveler with a packed bag
+              always ready. Proudly, I've received the Outstanding Student
+              Service Award from RIT. Let's connect and chat about shared
+              interests or the next exciting adventure—click here!"
             </p>
             <div class="about__info">
               <div>
@@ -280,15 +285,6 @@
                 </div>
 
                 <!-- Add other skills here -->
-                <div class="skills__data">
-                  <div class="skills__title">
-                    <h3 class="skills__name">Java</h3>
-                    <span class="skills__number">80%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__java"></span>
-                  </div>
-                </div>
 
                 <div class="skills__data">
                   <div class="skills__title">
@@ -725,14 +721,12 @@
           <div class="project__container container grid">
             <div class="project__data">
               <h2 class="project__title">Portfolio Website Design</h2>
-              <!--============================Image with flowchart=======================================-->
+
               <p class="project__description">
-                This website is designed using HTML5, CSS3, JavaScript and React
-                JS. It is deployed on AWS cloud with AWS Amplify used for CI/CD.
-                All the details provided in the contact me section of the
-                website will be stored in a Relational Database(Amazon RDBMS)
-                with a trigger to activate SMS service everytime there is a new
-                Entry.
+                This website is designed using HTML5, CSS3, JavaScript. It is
+                deployed on AWS cloud with AWS Amplify used for CI/CD. A click
+                action in the contact me section of the website creates a record
+                in AWS DynamoDB and triggers AWS SES service using Lambda.
               </p>
               <a
                 href="https://github.com/pg3328/portfolio"
@@ -743,6 +737,11 @@
                 <i class="uil uil-arrow-right project__icon button__icon"></i>
               </a>
             </div>
+            <!-- <img
+              src="assets/img/Untitled Diagram.drawio.svg"
+              alt="Flowchart isn't available"
+              class="project__img"
+            /> -->
           </div>
         </div>
       </section>
@@ -979,38 +978,61 @@
               <i class="uil uil-map-marker contact__icon"></i>
               <div>
                 <h3 class="contact__title">Location</h3>
-                <span class="contact__subtitle"
-                  >713 Parkpoint Drive, Rochester, NY</span
-                >
+                <span class="contact__subtitle">Rochester, NY</span>
               </div>
             </div>
           </div>
-          <form action="" class="contact__form grid">
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2913.795339537801!2d-77.6611761231405!3d43.087797888814436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d14c81458a9b6f%3A0xc1f84ed217932c0f!2s713%20Park%20Point%20Dr%2C%20Rochester%2C%20NY%2014623!5e0!3m2!1sen!2sus!4v1702337856828!5m2!1sen!2sus"
+            class="contact__form"
+          ></iframe> -->
+
+          <form id="contactForm" class="contact__form grid">
             <div class="contact__inputs grid">
               <div class="contact__content">
-                <label for="" class="contact__label">Name</label>
-                <input type="text" class="contact__input" />
+                <label for="name" class="contact__label">Name</label>
+                <span class="contact__label">*</span>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="contact__input"
+                  required
+                  autocomplete="name"
+                />
               </div>
               <div class="contact__content">
-                <label for="" class="contact__label">Email</label>
-                <input type="email" class="contact__input" />
+                <label for="email" class="contact__label">Email</label>
+                <span class="contact__label">*</span>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="contact__input"
+                  required
+                  autocomplete="@gmail.com"
+                />
               </div>
             </div>
             <div class="contact__content">
-              <label for="" class="contact__label">Message</label>
+              <label for="message" class="contact__label">Message</label>
               <textarea
-                name=""
-                id=""
+                name="message"
+                id="message"
                 cols="0"
                 rows="7"
                 class="contact__input"
               ></textarea>
             </div>
             <div>
-              <a href="" class="button button--flex">
+              <button
+                type="button"
+                class="button button--flex"
+                onclick="submitForm(event)"
+              >
                 Send Message
                 <i class="uil uil-message button__icon"></i>
-              </a>
+              </button>
             </div>
           </form>
         </div>
@@ -1056,7 +1078,8 @@
     <a href="#" class="scrollup" id="scroll-up">
       <i class="uil uil-arrow-up scrollup__icon"></i>
     </a>
-
+    <script src="assets/js/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

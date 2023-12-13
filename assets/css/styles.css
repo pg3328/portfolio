@@ -868,6 +868,18 @@ img {
   padding: 0.25re 0.5rem 0.5rem 0;
 }
 
+@keyframes buttons {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /*==================== FOOTER ====================*/
 .footer {
   padding-top: 2rem;
@@ -1186,6 +1198,9 @@ img {
   }
   .home__social {
     transform: translateX(-6rem);
+  }
+  .about__img {
+    margin-top: -7.5rem;
   }
   .services__container {
     grid-template-columns: repeat(3, 238px);

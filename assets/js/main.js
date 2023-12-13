@@ -1,3 +1,5 @@
+/*global _config*/
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -219,3 +221,57 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+/*===============================Form Submission===============================*/
+
+function submitForm(e) {
+  // Get form data
+  e.preventDefault();
+  var URL = _config.api.invokeUrl;
+
+  var Namere = /[A-Za-z]{1}[A-Za-z]/;
+  if (!Namere.test($("#name").val())) {
+    alert("Name can not less than 2 char");
+    return;
+  }
+
+  if ($("#email").val() == "") {
+    alert("Please enter your email id");
+    return;
+  }
+
+  var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+  if (!reeamil.test($("#email").val())) {
+    alert("Please enter valid email address");
+    return;
+  }
+
+  var name = $("#name").val();
+  var email = $("#email").val();
+  var desc = $("#message").val(); // Fix here
+  var data = {
+    name: name,
+    email: email,
+    desc: desc,
+  };
+
+  $.ajax({
+    type: "POST",
+    url: URL,
+    dataType: "json",
+    crossDomain: true, // Fix here
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(data),
+
+    success: function () {
+      // clear form and show a success message
+      alert("Pradeep Will Contact you soon!");
+      document.getElementById("contactForm").reset();
+      location.reload();
+    },
+    error: function () {
+      // show an error message
+      alert("This website is facing difficulty, please try again!");
+    },
+  });
+}
