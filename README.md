@@ -22,8 +22,7 @@ To run the project locally, follow these steps:
 2. Ensure that you have editor such as vs code to make the changes.
 3. Create backend architecture on with Lambda, API Gateway , Dynamo DB, and SES.
 4. Use the below code under lambda with nodejs 16. x. 
-   ```
-   import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 const ses = new SESClient({ region: "us-east-1" });
 
 export const handler = async (event) => {
@@ -53,7 +52,8 @@ export const handler = async (event) => {
     return "error";
     // error handling.
   }
-}; ```
+};
+
 5. Ensure that both the source and destination emails are verified in the SES Sandbox.
 
 ## Additional Information
