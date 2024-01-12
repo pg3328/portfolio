@@ -60,7 +60,7 @@ export const handler = async (event) => {
 
 ## Additional Information
 
-Feel free to download and use the above content of this project. 
+Feel free to download and use the above content for your project. 
 
 
 
