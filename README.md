@@ -53,7 +53,8 @@ export const handler = async (event) => {
     return "error";
     // error handling.
   }
-};```
+};
+```
 
 5. Ensure that both the source and destination emails are verified in the SES Sandbox.
 
